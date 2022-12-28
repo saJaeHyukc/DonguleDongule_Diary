@@ -132,7 +132,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.secrets.json
+*secrets.json
 .env
 .venv
 env/
