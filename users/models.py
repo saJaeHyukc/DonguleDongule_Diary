@@ -67,6 +67,11 @@ class User(AbstractBaseUser):
         return self.is_admin
     
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=10)
     profile_image = models.ImageField(default="default_profile_pic.jpg", upload_to="profile_pics")
+    
+class ConfirmEmail(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    expired_at = models.DateTimeField()
+    secured_key = models.CharField(max_length=255)
