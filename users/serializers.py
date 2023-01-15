@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from users.models import User
+from users.models import Profile
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,3 +38,8 @@ class LogoutSerializer(serializers.Serializer):
 
         except TokenError:
             raise serializers.ValidationError(detail={"만료된 토큰": "유효하지 않거나 만료된 토큰입니다."})
+        
+class UserProfileSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ("nickname", "profile_image",)
