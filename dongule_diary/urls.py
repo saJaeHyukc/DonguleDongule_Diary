@@ -28,6 +28,8 @@ urlpatterns = [
     
     # Apps
     path('users/', include('users.urls')),
+    path('users/', include('dj_rest_auth.urls')),
+    path('users/', include('allauth.urls')),
     
     # Swagger
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
