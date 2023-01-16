@@ -12,4 +12,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/blacklist/', views.UserLogoutViews.as_view(), name='logout'),
     path("api/auth/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path('kakao/login/', views.kakao_login, name='kakao_login'),
+    path('kakao/callback/', views.kakao_callback, name='kakao_callback'),
+    path('kakao/login/finish/', views.KakaoLogin.as_view(), name='kakao_login_todjango'),
 ]
